@@ -1,0 +1,15 @@
+{
+  "name": "opendialer",
+  "version": "0.0.1",
+  "description": "An open-source predictive dialer for political campaigns",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {},
+  "author": "Zach Blume",
+  "prisma": {
+    "schema": "db/schema.prisma"
+  }
+}
