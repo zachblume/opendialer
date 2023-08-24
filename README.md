@@ -12,17 +12,17 @@ An open-source phone banking tool for political campaigns.
 
 ```
 app/ - Frontend
-db/ - Prisma migrations for Postgres
+supabase/ - DB runner and migrations
 docs/ - Documentation
-tests/ - Unit and integration tests
+tests/ - Unit, integration, end-2-end tests
 /Makefile - Local development commands
-/docker-compose.yml - Don't run directly, use Makefile.
-/README.md - Read before docs/
+/README.md - Read first
+/vercel.json - Vercel deployment config
 ```
 
 ### Deployment
 
-Instructions for Heroku, Render, Railway, etc.
+Instructions for Vercel+Supabase, Heroku, Render, Railway, etc.
 
 ### MVP features
 
@@ -36,8 +36,11 @@ Public
 
 Admin
 
-- [ ] Onboarding flow: Sign up
-- [ ] Onboarding flow: Twilio API credentials
+- [ ] Quick deploy to Vercel/Supabase
+- [ ] Vercel env variables:
+  - [ ] Supabase API credentials
+  - [ ] Twilio API credentials
+  - [ ] Admin password
 - [ ] Create a campaign
 - [ ] Upload .csv of phone numbers
 - [ ] Create basic script

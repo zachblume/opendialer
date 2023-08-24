@@ -1,6 +1,5 @@
-# make default command make start
 dev:
-	echo "Starting the application for development"
-	docker-compose up -d
-	npm i && npx prisma migrate deploy
+	echo "Starting the application for development..."
+	npm install
+	npx supabase start --exclude 'edge-runtime,vector,imgproxy'
 	cd app && npm i && npm run dev

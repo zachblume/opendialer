@@ -9,7 +9,7 @@
   },
   "scripts": {},
   "author": "Zach Blume",
-  "prisma": {
-    "schema": "db/schema.prisma"
+  "devDependencies": {
+    "supabase": "^1.88.0"
   }
 }
