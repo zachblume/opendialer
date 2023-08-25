@@ -1,15 +1,10 @@
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import Link from "next/link";
 import { Paper } from "@mui/material";
-import Head from "next/head";
 
 const menu = [
     { title: "Dashboard", link: "/admin" },
@@ -19,10 +14,7 @@ const menu = [
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
     return (
         <>
-            <Head>
-                <title>Open Dialer Admin</title>
-            </Head>
-            <AppBar variant="outlined" position="static">
+            <AppBar variant="outlined" position="static" elevation={0}>
                 <Toolbar>
                     <h1 className="text-xl font-normal">Open Dialer Admin</h1>
                 </Toolbar>
