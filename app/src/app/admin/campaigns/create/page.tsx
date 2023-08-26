@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import UploadFile from "@mui/icons-material/UploadFile";
 import { parse } from "csv-parse/sync";
 import { createClient } from "@supabase/supabase-js";
+import { redirect } from "next/navigation";
 
 // handleUpload server action nextjs
 async function handleUpload(data: any) {
@@ -51,6 +52,8 @@ async function handleUpload(data: any) {
         .insert(processed[0]);
     if (recordError) console.log(recordError);
     else console.log("Successfully uploaded records");
+
+    redirect(`/admin/campaigns/${newCampaign.id}`);
 }
 
 // This page is for creating a new dialer campaign
