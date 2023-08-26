@@ -1,3 +1,4 @@
+"use client";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import MenuList from "@mui/material/MenuList";
@@ -11,7 +12,11 @@ const menu = [
     { title: "Create Campaign", link: "/admin/campaigns/create" },
 ];
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     return (
         <>
             <AppBar variant="outlined" position="static" elevation={0}>
@@ -24,7 +29,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <Paper className="h-screen">
                         <MenuList>
                             {menu.map(({ link, title }) => (
-                                <Link href={link} className="!no-underline" key={title + link}>
+                                <Link
+                                    href={link}
+                                    className="!no-underline"
+                                    key={title + link}
+                                >
                                     <MenuItem>
                                         <ListItemText>{title}</ListItemText>
                                     </MenuItem>
