@@ -22,16 +22,10 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
     );
 }
 
-const columns = [
-    { field: "first_nmae", headerName: "First Name" },
-    { field: "last_name", headerName: "Last Name" },
-    { field: "phone_number", headerName: "Phone Number" },
-];
-
 async function Wrapper({ campaignID }: { campaignID: string }) {
     const { data: rows, error } = await supabase
         .from("people")
         .select()
         .eq("campaign_id", campaignID);
-    return <DataGridWrapper rows={[...(rows || [])]} columns={columns} />;
+    return <DataGridWrapper table="people" rows={[...(rows || [])]} />;
 }

@@ -23,19 +23,7 @@ export default async function AdminPage() {
                     </Link>
                 </div>
             </div>
-            <DataGridWrapper
-                rows={campaigns || []}
-                columns={[
-                    { field: "name", headerName: "Name" },
-                    { field: "status", headerName: "Status" },
-                    {
-                        field: "created_at",
-                        headerName: "Date Created",
-                        type: "date",
-                    },
-                    { field: "progress", headerName: "Progress %" },
-                ]}
-            />
+            <DataGridWrapper table="campaigns" rows={campaigns || []} />
         </>
     );
 }

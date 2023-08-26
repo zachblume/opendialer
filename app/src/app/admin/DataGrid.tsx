@@ -3,8 +3,15 @@ import { DataGridProps, GridEventListener } from "@mui/x-data-grid";
 import { DataGrid } from "@mui/x-data-grid";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { colDefs } from "./coldefs";
 
-export default function DataGridWrapper(props: DataGridProps): JSX.Element {
+type DataGridWrapperProps = DataGridProps & {
+    table: string;
+};
+
+export default function DataGridWrapper(
+    props: DataGridWrapperProps
+): JSX.Element {
     const router = useRouter();
     const handleClick: GridEventListener<"rowClick"> = (
         params,
@@ -16,6 +23,19 @@ export default function DataGridWrapper(props: DataGridProps): JSX.Element {
             router.push(`/admin/campaigns/${params.row.id}`);
         }
     };
+    const c = (props?.columns ? props?.columns : colDefs?.[props?.table]).map(
+        (column) => ({
+            ...column,
+            valueFormatter:
+                column.type === "date"
+                    ? (params) => {
+                          return new Date(
+                              params.value as string
+                          ).toLocaleDateString();
+                      }
+                    : column?.valueFormatter,
+        })
+    );
     return (
         <DataGrid
             {...props}
@@ -28,17 +48,7 @@ export default function DataGridWrapper(props: DataGridProps): JSX.Element {
             sx={
                 props?.sx || props?.rows?.[0]?.name ? { cursor: "pointer" } : {}
             }
-            columns={props?.columns?.map((column) => ({
-                ...column,
-                valueFormatter:
-                    column.type === "date"
-                        ? (params) => {
-                              return new Date(
-                                  params.value as string
-                              ).toLocaleDateString();
-                          }
-                        : column?.valueFormatter,
-            }))}
+            columns={c}
         />
     );
 }
