@@ -41,8 +41,8 @@ Admin
   - [ ] Supabase API credentials
   - [ ] Twilio API credentials
   - [ ] Admin password
-- [ ] Create a campaign
-- [ ] Upload .csv of phone numbers
+- [x] Create a campaign
+- [x] Upload .csv of phone numbers
 - [ ] Create basic script
 - [ ] Publish to a unique URL
 - [ ] Unauthenticated agents can visit the URL and start making calls
