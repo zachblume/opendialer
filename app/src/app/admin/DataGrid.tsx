@@ -1,11 +1,21 @@
 "use client";
 
-import { DataGridProps, GridEventListener, DataGrid } from "@mui/x-data-grid";
+import {
+    DataGridProps,
+    GridEventListener,
+    DataGrid,
+    GridValueFormatterParams,
+} from "@mui/x-data-grid";
 import { useRouter } from "next/navigation";
 import { colDefs } from "./coldefs";
 
-type DataGridWrapperProps = DataGridProps & {
+type DataGridWrapperProps = {
     table: string;
+    columns?: any[];
+    rows?: any[];
+    initialState?: DataGridProps["initialState"];
+    onRowClick?: GridEventListener<"rowClick">;
+    sx?: any;
 };
 
 export default function DataGridWrapper(
@@ -27,7 +37,7 @@ export default function DataGridWrapper(
             ...column,
             valueFormatter:
                 column.type === "date"
-                    ? (params) => {
+                    ? (params: GridValueFormatterParams) => {
                           return new Date(
                               params.value as string
                           ).toLocaleDateString();
@@ -48,6 +58,7 @@ export default function DataGridWrapper(
                 props?.sx || props?.rows?.[0]?.name ? { cursor: "pointer" } : {}
             }
             columns={c}
+            rows={props?.rows || []}
         />
     );
 }

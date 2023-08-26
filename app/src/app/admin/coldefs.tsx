@@ -1,8 +1,11 @@
 "use client";
 
 import Tooltip from "@mui/material/Tooltip";
+import { GridColDef } from "@mui/x-data-grid";
 
-const colDefs = {
+const colDefs: {
+    [key: string]: GridColDef[];
+} = {
     people: [
         { field: "first_name", headerName: "First Name" },
         { field: "last_name", headerName: "Last Name" },

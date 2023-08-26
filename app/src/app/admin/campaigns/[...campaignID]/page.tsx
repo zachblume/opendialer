@@ -46,7 +46,7 @@ const DataGridWrapperL2 = async ({ campaignID }: { campaignID: string }) => {
         .from("people")
         .select()
         .eq("campaign_id", campaignID);
-    return <DataGridWrapper table={"people"} rows={rows} />;
+    return <DataGridWrapper table={"people"} rows={rows || []} />;
 };
 
 async function Wrapper({
