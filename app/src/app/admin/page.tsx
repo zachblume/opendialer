@@ -11,6 +11,9 @@ This page lets you:
  - Publish to a unique URL
 */
 
+// NextJS app dir cache- always dynamically generate:
+export const revalidate = 0;
+
 export default async function AdminPage() {
     const { data: campaigns } = await supabase.from("campaigns").select();
     return (

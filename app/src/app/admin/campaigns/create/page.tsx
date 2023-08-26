@@ -49,6 +49,8 @@ async function handleUpload(data: any) {
     if (recordError) console.log(recordError);
     else console.log("Successfully uploaded records");
 
+    // invalidate the cache for /admin/campaigns and /admin/campaigns/[campaignID]
+
     redirect(`/admin/campaigns/${newCampaign.id}`);
 }
 

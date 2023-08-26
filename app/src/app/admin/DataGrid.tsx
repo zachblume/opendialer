@@ -1,7 +1,6 @@
 "use client";
-import { DataGridProps, GridEventListener } from "@mui/x-data-grid";
-import { DataGrid } from "@mui/x-data-grid";
-import { redirect } from "next/navigation";
+
+import { DataGridProps, GridEventListener, DataGrid } from "@mui/x-data-grid";
 import { useRouter } from "next/navigation";
 import { colDefs } from "./coldefs";
 
