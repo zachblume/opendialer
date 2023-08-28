@@ -15,13 +15,18 @@ This page lets you:
 export const revalidate = 0;
 
 export default async function AdminPage() {
-    const { data: campaigns, error } = await supabase
+    // const { data: campaigns, error } = await supabase
+    //     .from("campaigns")
+    //     .select();
+    // the above but with explicit any types
+    const { data: campaigns, error }: any = await supabase
         .from("campaigns")
         .select();
     if (error) {
         console.error(error);
         return JSON.stringify(error);
     }
+    // const campaigns: any = [];
 
     return (
         <>
