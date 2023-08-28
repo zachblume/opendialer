@@ -31,12 +31,19 @@ const CampaignName = async ({ campaignID }: { campaignID: string }) => {
         .select()
         .eq("id", campaignID)
         .single();
+    const link = `/dial/${campaignID}`;
     return (
         <>
             <Tooltip title={campaignID} arrow placement="bottom-start">
                 <h2>Campaign: {campaign.name}</h2>
             </Tooltip>
             <p>{campaign.description}</p>
+            <p>
+                Public dialer link:{" "}
+                <a href={link} target="_new">
+                    {link}
+                </a>
+            </p>
         </>
     );
 };

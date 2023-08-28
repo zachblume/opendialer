@@ -3,30 +3,11 @@ import Link from "next/link";
 import DataGridWrapper from "./DataGrid";
 import supabase from "@/lib/supabase";
 
-/* 
-This page lets you:
- - Create a campaign
- - Upload .csv of phone numbers
- - Create a basic script
- - Publish to a unique URL
-*/
-
 // NextJS app dir cache- always dynamically generate:
 export const revalidate = 0;
 
 export default async function AdminPage() {
-    // const { data: campaigns, error } = await supabase
-    //     .from("campaigns")
-    //     .select();
-    // the above but with explicit any types
-    const { data: campaigns, error }: any = await supabase
-        .from("campaigns")
-        .select();
-    if (error) {
-        console.error(error);
-        return JSON.stringify(error);
-    }
-    // const campaigns: any = [];
+    const { data: campaigns } = await supabase.from("campaigns").select();
 
     return (
         <>
