@@ -26,11 +26,12 @@ export default async function CampaignPage({ params }: CampaignPageProps) {
 }
 
 const CampaignName = async ({ campaignID }: { campaignID: string }) => {
-    const { data: campaign, error } = await supabase
+    const { data: campaign } = await supabase
         .from("campaigns")
         .select()
         .eq("id", campaignID)
         .single();
+    if (!campaign) return;
     const link = `/dial/${campaignID}`;
     return (
         <>

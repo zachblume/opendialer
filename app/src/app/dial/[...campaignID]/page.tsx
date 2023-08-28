@@ -1,5 +1,4 @@
 import { Box, Tab, Tabs, Tooltip } from "@mui/material";
-import DataGridWrapper from "../../DataGrid";
 import supabase from "@/lib/supabase";
 import Link from "next/link";
 
@@ -20,7 +19,6 @@ export default async function DialPage({ params }: DialPageProps) {
     return (
         <>
             <CampaignName campaignID={campaignID} />
-            {/* <Wrapper campaignID={campaignID} tab={tab} /> */}
         </>
     );
 }
@@ -31,6 +29,7 @@ const CampaignName = async ({ campaignID }: { campaignID: string }) => {
         .select()
         .eq("id", campaignID)
         .single();
+    if (!campaign) return;
     const link = `/dial/${campaignID}`;
     return (
         <>
@@ -38,12 +37,6 @@ const CampaignName = async ({ campaignID }: { campaignID: string }) => {
                 <h2>Campaign: {campaign.name}</h2>
             </Tooltip>
             <p>{campaign.description}</p>
-            <p>
-                Public dialer link:{" "}
-                <a href={link} target="_new">
-                    {link}
-                </a>
-            </p>
         </>
     );
 };
