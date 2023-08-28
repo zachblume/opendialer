@@ -1,3 +1,3 @@
 {
-  "buildCommand": "npm i supabase && npx supabase link --project-ref byvydyhsylbpyatgtbcy && npx supabase db push && npm run build"
+  "buildCommand": "npm i supabase && npx supabase link --project-ref byvydyhsylbpyatgtbcy && npx supabase db push && echo 'Migrated' && npm run build"
 }
