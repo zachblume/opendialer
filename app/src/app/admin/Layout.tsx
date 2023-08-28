@@ -4,7 +4,7 @@ import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import Link from "next/link";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 const menu = [
     { title: "Dashboard", link: "/admin" },
