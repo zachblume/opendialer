@@ -16,7 +16,7 @@ export default function AdminLayout({
     children,
 }: {
     children: React.ReactNode;
-}) {
+}): JSX.Element {
     return (
         <>
             <AppBar variant="outlined" position="static" elevation={0}>
