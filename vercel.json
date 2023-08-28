@@ -1,0 +1,3 @@
+{
+  "buildCommand": "npx supabase db push && npm run build"
+}
