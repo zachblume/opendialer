@@ -32,6 +32,7 @@ async function handleUpload(data: any) {
         .select()
         .single();
     if (error) console.log(error);
+    if (!newCampaign?.id) throw Error("No campaign ID");
     else console.log("Successfully created campaign");
 
     // Upload each indivdiual record from parsed to db
