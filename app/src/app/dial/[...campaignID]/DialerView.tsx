@@ -4,6 +4,7 @@ export default function DialerView({
 }: {
     campaignID: string;
     dialInNumber: number | null;
-}) {
+    }) {
+    
     return null;
 }

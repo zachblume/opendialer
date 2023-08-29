@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-// This refreshed the page upon changes to the viewstate as subscribed by supabase
+// This "refreshes" i.e. re-fetches the page upon changes to the viewstate as subscribed by supabase
 export default function SubscriptionWrapper({
     campaignID,
     dialInNumber,
@@ -21,7 +21,7 @@ export default function SubscriptionWrapper({
         const listenOptions = {
             event: "*",
             schema: "public",
-            table: "todos",
+            table: "calls",
             filter: `dial_in_number=eq.${dialInNumber},campaignID=eq.${campaignID}`,
         };
 
