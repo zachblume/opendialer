@@ -123,7 +123,7 @@ const findNumberOfCallsToMake = (
  * const answerRateExample = 0.25 as Percentage
  * console.log(overdialRate(answerRateExample))
  */
-const overdialRate = (answerRate: Percentage): PositiveInteger => {
+const calculateOverdialRate = (answerRate: Percentage): PositiveInteger => {
     if (!validatePercentage(answerRate)) {
         throw new Error(
             "Answer rate must be a valid percentage between 0 and 1."
@@ -133,4 +133,4 @@ const overdialRate = (answerRate: Percentage): PositiveInteger => {
     return findNumberOfCallsToMake(answerRate, numberOfAgents);
 };
 
-export default overdialRate;
+export default calculateOverdialRate;

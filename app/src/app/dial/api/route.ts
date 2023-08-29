@@ -7,6 +7,9 @@ import supabase from "@/lib/supabase";
 // Endpoint URL for status updates
 const statusUpdateEndpoint = "YOUR_STATUS_UPDATE_ENDPOINT";
 const YOUR_NEXT_NUMBER_ENDPOINT = "YOUR_NEXT_NUMBER_ENDPOINT";
+import calculateOverdialRate from "@/lib/dialRate";
+const answerRate = 0.15; // Let's just assume 15% answer rate for now and calculate this more dynamically later
+const overdialRate = calculateOverdialRate(answerRate);
 
 // Define TypeScript types for incoming request and expected database responses
 interface RequestBody {
@@ -70,12 +73,12 @@ export default async function POST(request: Request) {
         }
         const nextNumberEndpoint = `${YOUR_NEXT_NUMBER_ENDPOINT}?current_campaign_id=${campaignId}`;
 
-        // Fetch 10 numbers from the database and mark them as "in progress"
+        // Fetch N numbers from the database and mark them as "in progress"
         const { data: numbers, error: numbersError } = await supabase
             .from("people")
             .update({ status: "in progress" })
             .match({ campaign_id: campaignId })
-            .limit(10)
+            .limit(overdialRate)
             .select("*");
 
         if (numbersError || !Array.isArray(numbers) || !numbers?.length) {
