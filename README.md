@@ -22,14 +22,14 @@ tests/ - Unit, integration, end-2-end tests
 
 ### Deployment
 
-Instructions for Vercel+Supabase, Heroku, Render, Railway, etc.
+Instructions for Vercel+Supabase, Heroku, Render, Railway, AWS, etc.
 
 ### MVP features
 
 Public
 
-- [ ] Open dialer page for a campaign
-- [ ] Enter your name and phone number
+- [x] Open dialer page for a campaign
+- [x] Enter your name and phone number
 - [ ] Call into the dialer
 - [ ] See a script while dialer begins
 - [ ] Controls for hang up, and disposition
