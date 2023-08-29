@@ -10,8 +10,8 @@ const YOUR_NEXT_NUMBER_ENDPOINT = "YOUR_NEXT_NUMBER_ENDPOINT";
 
 // Define TypeScript types for incoming request and expected database responses
 interface RequestBody {
-    To?: string;
-    From?: string;
+    To: string;
+    From: string;
 }
 
 /**
@@ -22,7 +22,8 @@ interface RequestBody {
  */
 export default async function POST(request: Request) {
     try {
-        const { To, From } = await request.json();
+        const body: RequestBody = await request.json();
+        const { To, From } = body;
 
         // Runtime checks for request validation
         if (!From) {
