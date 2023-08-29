@@ -133,5 +133,4 @@ const overdialRate = (answerRate: Percentage): PositiveInteger => {
     return findNumberOfCallsToMake(answerRate, numberOfAgents);
 };
 
-const answerRateExample = 0.25 as Percentage;
-console.log(overdialRate(answerRateExample));
+export default overdialRate;
